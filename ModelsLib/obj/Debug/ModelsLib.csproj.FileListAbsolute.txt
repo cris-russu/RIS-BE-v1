@@ -1,0 +1,5 @@
+C:\Users\cris\source\repos\RIS-BE v1.0\ModelsLib\bin\Debug\ModelsLib.dll
+C:\Users\cris\source\repos\RIS-BE v1.0\ModelsLib\bin\Debug\ModelsLib.pdb
+C:\Users\cris\source\repos\RIS-BE v1.0\ModelsLib\obj\Debug\ModelsLib.csproj.CoreCompileInputs.cache
+C:\Users\cris\source\repos\RIS-BE v1.0\ModelsLib\obj\Debug\ModelsLib.dll
+C:\Users\cris\source\repos\RIS-BE v1.0\ModelsLib\obj\Debug\ModelsLib.pdb
