@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelsLib
 {
@@ -22,5 +18,11 @@ namespace ModelsLib
             set { date = value; }
         }
 
+        public ClearingLog() { }
+        public ClearingLog(DateTime dt, int bin)
+        {
+            date = dt;
+            binId = bin; 
+        }
     }
 }

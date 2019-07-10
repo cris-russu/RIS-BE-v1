@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ModelsLib
+﻿namespace ModelsLib
 {
     public class AtmosphericReading : Reading
     {
@@ -28,6 +22,12 @@ namespace ModelsLib
             set { pressure = value; }
         }
 
-        
+        public AtmosphericReading() { }
+        public AtmosphericReading(int pr, int hu, int tmp)
+        {
+            pressure = pr;
+            humidity = hu;
+            tempurature = tmp; 
+        }
     }
 }

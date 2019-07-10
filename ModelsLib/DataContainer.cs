@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelsLib
 {
@@ -14,6 +10,7 @@ namespace ModelsLib
         private ChemicalReading ammoniaReading;
         private ChemicalReading sulfurReading;
         private AtmosphericReading atmReading;
+        //TODO: rename to the correct sensors' names
 
         public AtmosphericReading AtmReading
         {
@@ -46,6 +43,12 @@ namespace ModelsLib
             set { timestamp = value; }
         }
 
-
+        public DataContainer() { }
+        public DataContainer(Telegram telegram)
+        {
+            timestamp = telegram.Timestamp;
+            euid = telegram.EUID;
+            //TODO: insert parsing of telegram's payload method for each of the DataContainer's properties
+        }
     }
 }

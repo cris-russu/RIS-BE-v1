@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelsLib
 {
@@ -10,9 +6,9 @@ namespace ModelsLib
     {
         private string euid;
         private string payload;
-        private string timestamp;
+        private DateTime timestamp;
 
-        public string Timestamp
+        public DateTime Timestamp
         {
             get { return timestamp; }
             set { timestamp = value; }
@@ -27,6 +23,13 @@ namespace ModelsLib
             get { return euid; }
             set { euid = value; }
         }
+
+        public Telegram() { }
+        public Telegram(string rawStr)
+        {
+            //TODO: insert string parsing method
+        }
+
 
     }
 }
