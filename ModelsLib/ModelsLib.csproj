@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChemicalReading.cs" />
+    <Compile Include="AtmosphericReading.cs" />
     <Compile Include="Reading.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

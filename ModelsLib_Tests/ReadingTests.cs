@@ -71,5 +71,21 @@ namespace ModelsLib_Tests
             Assert.IsFalse(string.Equals(expected, actual));
         }
 
+        [TestMethod]
+        public void GetAtmReadingTest1()
+        {
+            //Arrange
+            AtmosphericReading reading = new AtmosphericReading();
+            DateTime date = DateTime.Parse("2019-07-10 15:30:22");
+            reading.Timestamp = date;
+            string expected = "14:30:22";
+
+            //Act
+            string actual = reading.GetReadingTime();
+
+            //Assert
+            Assert.IsFalse(string.Equals(expected, actual));
+        }
+
     }
 }

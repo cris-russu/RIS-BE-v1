@@ -8,14 +8,21 @@ namespace ModelsLib
 {
     public class ChemicalReading : Reading
     {
-        public int Value { get; set; }
+        private int val;
+
+        public int Value
+        {
+            get { return val; }
+            set { val = value; }
+        }
+
 
         public ChemicalReading() { }
 
         public ChemicalReading(DateTime timestamp, int value, int sensor)
         {
             Timestamp = timestamp;
-            Value = value;
+            val = value;
             sensor = SensorId;
         }
 
@@ -23,7 +30,7 @@ namespace ModelsLib
         {
             Timestamp = reading.Timestamp;
             SensorId = reading.SensorId;
-            Value = value;
+            val = value;
         }
 
 
