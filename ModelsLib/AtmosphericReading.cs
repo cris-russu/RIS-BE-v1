@@ -2,6 +2,8 @@
 {
     public class AtmosphericReading : Reading
     {
+        #region properties
+
         private int pressure;
         private int humidity;
         private int tempurature;
@@ -22,6 +24,10 @@
             set { pressure = value; }
         }
 
+        #endregion
+
+        #region constructors
+
         public AtmosphericReading() { }
         public AtmosphericReading(int pr, int hu, int tmp)
         {
@@ -37,5 +43,7 @@
             Timestamp = reading.Timestamp;
             SensorId = reading.SensorId;
         }
+        
+        #endregion
     }
 }

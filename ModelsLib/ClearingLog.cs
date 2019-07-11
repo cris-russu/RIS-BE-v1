@@ -4,6 +4,8 @@ namespace ModelsLib
 {
     public class ClearingLog
     {
+        #region properties
+
         private DateTime date;
         private int binId;
 
@@ -17,6 +19,7 @@ namespace ModelsLib
             get { return date; }
             set { date = value; }
         }
+        #endregion
 
         public ClearingLog() { }
         public ClearingLog(DateTime dt, int bin)

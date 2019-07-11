@@ -4,6 +4,8 @@ namespace ModelsLib
 {
     public class DataContainer
     {
+        #region properties
+
         private DateTime timestamp;
         private string euid;
         private ChemicalReading tgs2611Reading;
@@ -42,6 +44,7 @@ namespace ModelsLib
             get { return timestamp; }
             set { timestamp = value; }
         }
+        #endregion
 
         public DataContainer() { }
         public DataContainer(Telegram telegram)
@@ -51,9 +54,9 @@ namespace ModelsLib
             //TODO: insert parsing of telegram's payload method for each of the DataContainer's properties
         }
 
+
         public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
         {
-            // Unix timestamp is seconds past epoch
             DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
             dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
             return dtDateTime;

@@ -4,6 +4,8 @@ namespace ModelsLib
 {
     public class WeatherForecast
     {
+        #region properties
+
         private int temperature;
         private int pressure;
         private int humidity;
@@ -35,6 +37,9 @@ namespace ModelsLib
             get { return temperature; }
             set { temperature = value; }
         }
+        #endregion
+
+        #region contructors
 
         public WeatherForecast() { }
         public WeatherForecast(int tmp, int pres, int hum)
@@ -43,5 +48,7 @@ namespace ModelsLib
             pressure = pres;
             humidity = hum;
         }
+        #endregion
+
     }
 }

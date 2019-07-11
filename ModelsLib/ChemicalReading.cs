@@ -11,17 +11,16 @@ namespace ModelsLib
             get { return val; }
             set { val = value; }
         }
-
+      
+        #region cosntructors
 
         public ChemicalReading() { }
-
         public ChemicalReading(DateTime timestamp, int value, int sensor)
         {
             Timestamp = timestamp;
             val = value;
             sensor = SensorId;
         }
-
         public ChemicalReading(Reading reading, int value)
         {
             Timestamp = reading.Timestamp;
@@ -29,6 +28,7 @@ namespace ModelsLib
             val = value;
         }
 
+        #endregion
 
     }
 }

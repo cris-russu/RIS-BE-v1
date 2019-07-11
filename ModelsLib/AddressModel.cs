@@ -4,6 +4,8 @@ namespace ModelsLib
 {
     public class AddressModel
     {
+        #region properties
+
         private string city;
         private string street;
         private int number;
@@ -35,6 +37,8 @@ namespace ModelsLib
             get { return city; }
             set { city = value; }
         }
+
+        #endregion
 
         public AddressModel() { }
         public AddressModel(string ct, string str, int num, string zc)

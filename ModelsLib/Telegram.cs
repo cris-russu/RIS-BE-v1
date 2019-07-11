@@ -1,10 +1,11 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace ModelsLib
 {
     public class Telegram
     {
+        #region properties and empty ctor
+
         public readonly string cmd = "rx";
         public string eui { get; set; } //16 hex digits
         public double ts { get; set; } //server timestamp as number (milliseconds from Linux epoch)
@@ -17,11 +18,10 @@ namespace ModelsLib
         public double snr { get; set; } // fram snr, in dBm, one decimal place
 
         public Telegram() { }
+        #endregion
         
-        public Telegram GetTelegram(string rawJson) {
-            return JsonConvert.DeserializeObject<Telegram>(rawJson);
-        }
-
+        public Telegram GetTelegram(string rawJson) => JsonConvert.DeserializeObject<Telegram>(rawJson);
+        
         public string ConvertToJson() => JsonConvert.SerializeObject(this); 
         
     }

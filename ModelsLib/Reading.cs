@@ -4,6 +4,8 @@ namespace ModelsLib
 {
     public abstract class Reading
     {
+        #region properties
+
         private DateTime dateTime;
         private int sensorId;
 
@@ -16,6 +18,7 @@ namespace ModelsLib
             dateTime = timestamp;
             this.sensorId = sensorId;
         }
+        #endregion
 
         public string GetReadingDate() => Timestamp.ToShortDateString();
         public string GetReadingTime() => Timestamp.ToShortTimeString();
