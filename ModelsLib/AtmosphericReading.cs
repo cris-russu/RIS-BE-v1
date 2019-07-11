@@ -27,7 +27,15 @@
         {
             pressure = pr;
             humidity = hu;
-            tempurature = tmp; 
+            tempurature = tmp;
+        }
+        public AtmosphericReading(Reading reading, int pr, int hu, int tmp)
+        {
+            pressure = pr;
+            humidity = hu;
+            tempurature = tmp;
+            Timestamp = reading.Timestamp;
+            SensorId = reading.SensorId;
         }
     }
 }

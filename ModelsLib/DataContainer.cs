@@ -6,38 +6,38 @@ namespace ModelsLib
     {
         private DateTime timestamp;
         private string euid;
-        private ChemicalReading methaneReading;
-        private ChemicalReading ammoniaReading;
-        private ChemicalReading sulfurReading;
-        private AtmosphericReading atmReading;
-        //TODO: rename to the correct sensors' names
+        private ChemicalReading tgs2611Reading;
+        private ChemicalReading tgs2602Reading;
+        private ChemicalReading tgs2620Reading;
+        private AtmosphericReading bme680Reading;
 
-        public AtmosphericReading AtmReading
+
+        public AtmosphericReading BME680Reading
         {
-            get { return atmReading; }
-            set { atmReading = value; }
+            get { return bme680Reading; }
+            set { bme680Reading = value; }
         }
-        public ChemicalReading SulfurReading
+        public ChemicalReading TGS2620Reading
         {
-            get { return sulfurReading; }
-            set { sulfurReading = value; }
+            get { return tgs2620Reading; }
+            set { tgs2620Reading = value; }
         }
-        public ChemicalReading AmmoniaReading
+        public ChemicalReading TGS2602Reading
         {
-            get { return ammoniaReading; }
-            set { ammoniaReading = value; }
+            get { return tgs2602Reading; }
+            set { tgs2602Reading = value; }
         }
-        public ChemicalReading MethaneReading
+        public ChemicalReading TGS2611Reading
         {
-            get { return methaneReading; }
-            set { methaneReading = value; }
+            get { return tgs2611Reading; }
+            set { tgs2611Reading = value; }
         }
         public string EUID
         {
             get { return euid; }
             set { euid = value; }
         }
-        public DateTime TImestamp
+        public DateTime Timestamp
         {
             get { return timestamp; }
             set { timestamp = value; }
@@ -46,9 +46,17 @@ namespace ModelsLib
         public DataContainer() { }
         public DataContainer(Telegram telegram)
         {
-            timestamp = telegram.Timestamp;
-            euid = telegram.EUID;
+            timestamp = UnixTimeStampToDateTime(telegram.ts);
+            euid = telegram.eui;
             //TODO: insert parsing of telegram's payload method for each of the DataContainer's properties
+        }
+
+        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
+        {
+            // Unix timestamp is seconds past epoch
+            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            return dtDateTime;
         }
     }
 }
