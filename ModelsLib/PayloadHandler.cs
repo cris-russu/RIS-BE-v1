@@ -16,16 +16,38 @@ namespace ModelsLib
         public ushort BMEPressure { get; set; }
         public sbyte BMETemperature { get; set; }
         public byte BMEAirQuality { get; set; }
+        public List<string> KeyValueList { get; set; }
 
         public PayloadHandler() { }
+        public PayloadHandler(string oneTelegramString)
+        {
+            InitialString = oneTelegramString;
+        }
         public PayloadHandler(Telegram telegram)
         {
-                
+            InitialString = telegram.data;
         }
 
-        public static void SplitPayload(string rawPayload)
+        public void SplitPayload()
         {
-            //todo: change return to string array of length of # of properties of this class
+            KeyValueList = Split(InitialString, 2).ToList();
+        }
+
+        public void SetPayloadNumericValues()
+        {
+            TGS2602Val = ushort.Parse(KeyValueList.ElementAt(0) + KeyValueList.ElementAt(1), System.Globalization.NumberStyles.HexNumber);
+            TGS2611Val = ushort.Parse(KeyValueList.ElementAt(2) + KeyValueList.ElementAt(3), System.Globalization.NumberStyles.HexNumber);
+            TGS2620Val = ushort.Parse(KeyValueList.ElementAt(4) + KeyValueList.ElementAt(5), System.Globalization.NumberStyles.HexNumber);
+            BMEHumidity = byte.Parse(KeyValueList.ElementAt(6), System.Globalization.NumberStyles.HexNumber);
+            BMEPressure = ushort.Parse(KeyValueList.ElementAt(7) + KeyValueList.ElementAt(8), System.Globalization.NumberStyles.HexNumber);
+            BMETemperature = (sbyte)(128 - sbyte.Parse(KeyValueList.ElementAt(9), System.Globalization.NumberStyles.HexNumber));
+            BMEAirQuality = byte.Parse(KeyValueList.ElementAt(10), System.Globalization.NumberStyles.HexNumber);
+        }
+
+        static IEnumerable<string> Split(string str, int chunkSize)
+        {
+            return Enumerable.Range(0, str.Length / chunkSize)
+                .Select(i => str.Substring(i * chunkSize, chunkSize));
         }
     }
 }
