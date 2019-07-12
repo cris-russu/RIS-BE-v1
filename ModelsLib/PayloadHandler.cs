@@ -26,6 +26,8 @@ namespace ModelsLib
         public PayloadHandler(Telegram telegram)
         {
             InitialString = telegram.data;
+            SplitPayload();
+            SetPayloadNumericValues();
         }
 
         public void SplitPayload()

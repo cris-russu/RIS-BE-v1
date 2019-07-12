@@ -1,24 +1,32 @@
-﻿namespace ModelsLib
+﻿using System;
+
+namespace ModelsLib
 {
     public class AtmosphericReading : Reading
     {
         #region properties
 
-        private int pressure;
-        private int humidity;
-        private int tempurature;
+        private ushort pressure;
+        private byte humidity;
+        private sbyte tempurature;
+        private byte airQuality;
 
-        public int Temperature
+        public byte AirQUality
+        {
+            get { return airQuality; }
+            set { airQuality = value; }
+        }
+        public sbyte Temperature
         {
             get { return tempurature; }
             set { tempurature = value; }
         }
-        public int Humidity
+        public byte Humidity
         {
             get { return humidity; }
             set { humidity = value; }
         }
-        public int Pressure
+        public ushort Pressure
         {
             get { return pressure; }
             set { pressure = value; }
@@ -29,17 +37,27 @@
         #region constructors
 
         public AtmosphericReading() { }
-        public AtmosphericReading(int pr, int hu, int tmp)
+        public AtmosphericReading(ushort pr, byte hu, sbyte tmp, byte aq)
         {
             pressure = pr;
             humidity = hu;
             tempurature = tmp;
+            airQuality = aq;
         }
-        public AtmosphericReading(Reading reading, int pr, int hu, int tmp)
+        public AtmosphericReading(DateTime timestamp, ushort pr, byte hu, sbyte tmp, byte aq)
+        {
+            Timestamp = timestamp; 
+            pressure = pr;
+            humidity = hu;
+            tempurature = tmp;
+            airQuality = aq;
+        }
+        public AtmosphericReading(Reading reading, ushort pr, byte hu, sbyte tmp, byte aq)
         {
             pressure = pr;
             humidity = hu;
             tempurature = tmp;
+            airQuality = aq;
             Timestamp = reading.Timestamp;
             SensorId = reading.SensorId;
         }

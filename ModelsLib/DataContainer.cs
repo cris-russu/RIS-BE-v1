@@ -44,6 +44,7 @@ namespace ModelsLib
             get { return timestamp; }
             set { timestamp = value; }
         }
+        public PayloadHandler PayloadHdlr { get; set; }
         #endregion
 
         public DataContainer() { }
@@ -51,10 +52,15 @@ namespace ModelsLib
         {
             timestamp = UnixTimeStampToDateTime(telegram.ts);
             euid = telegram.eui;
-            //TODO: insert parsing of telegram's payload method for each of the DataContainer's properties
+            PayloadHandler payloadHandler = new PayloadHandler(telegram);
+            
+            tgs2602Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2602Val);
+            tgs2611Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2611Val);
+            tgs2620Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2620Val);
+            bme680Reading = new AtmosphericReading(Timestamp, payloadHandler.BMEPressure, payloadHandler.BMEHumidity, payloadHandler.BMETemperature, payloadHandler.BMEAirQuality);
         }
 
-        
+
 
         public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
         {

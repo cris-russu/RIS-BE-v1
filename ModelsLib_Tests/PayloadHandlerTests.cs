@@ -75,16 +75,14 @@ namespace ModelsLib_Tests
             ushort expectedTGS2602 = 2746;
             ushort expectedTGS2611 = 4787;
             ushort expectedTGS2620 = 47874;
-            byte expectedBMEHumidity = 0;
             ushort expectedPressure = 44812;
+            byte expectedBMEHumidity = 0;
             sbyte expectedTemperature = 128 - 187;
             byte expectedBMEAirQuality = 160;
 
             // Act
             PayloadHandler pldlr = new PayloadHandler(tlgr);
-            pldlr.SplitPayload();
-            pldlr.SetPayloadNumericValues();
-
+            
             // Assert
             Assert.AreEqual(pldlr.TGS2602Val, expectedTGS2602);
             Assert.AreEqual(pldlr.TGS2611Val, expectedTGS2611);

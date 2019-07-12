@@ -53,6 +53,7 @@
     <Compile Include="ReadingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TelegramTests.cs" />
+    <Compile Include="DataContainerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
