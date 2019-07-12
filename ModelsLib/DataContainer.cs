@@ -50,10 +50,10 @@ namespace ModelsLib
         public DataContainer() { }
         public DataContainer(Telegram telegram)
         {
-            timestamp = UnixTimeStampToDateTime(telegram.ts);
+            timestamp = Utils.UnixTimeStampToDateTime(telegram.ts);
             euid = telegram.eui;
             PayloadHandler payloadHandler = new PayloadHandler(telegram);
-            
+
             tgs2602Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2602Val);
             tgs2611Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2611Val);
             tgs2620Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2620Val);
@@ -61,12 +61,5 @@ namespace ModelsLib
         }
 
 
-
-        public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
-        {
-            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
-            return dtDateTime;
-        }
     }
 }

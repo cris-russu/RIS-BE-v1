@@ -32,7 +32,7 @@ namespace ModelsLib
 
         public void SplitPayload()
         {
-            KeyValueList = Split(InitialString, 2).ToList();
+            KeyValueList = Utils.Split(InitialString, 2).ToList();
         }
 
         public void SetPayloadNumericValues()
@@ -46,10 +46,6 @@ namespace ModelsLib
             BMEAirQuality = byte.Parse(KeyValueList.ElementAt(10), System.Globalization.NumberStyles.HexNumber);
         }
 
-        static IEnumerable<string> Split(string str, int chunkSize)
-        {
-            return Enumerable.Range(0, str.Length / chunkSize)
-                .Select(i => str.Substring(i * chunkSize, chunkSize));
-        }
+        
     }
 }
