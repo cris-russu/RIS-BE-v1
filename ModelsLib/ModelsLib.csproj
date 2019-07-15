@@ -52,6 +52,10 @@
     <Compile Include="DBObject Models\AtmosphericReading.cs" />
     <Compile Include="DBObject Models\ClearingLog.cs" />
     <Compile Include="DataContainer.cs" />
+    <Compile Include="DBObject Models\EndNode.cs" />
+    <Compile Include="DBObject Models\Sensor.cs" />
+    <Compile Include="Enums\BinType.cs" />
+    <Compile Include="Enums\SensorType.cs" />
     <Compile Include="PayloadHandler.cs" />
     <Compile Include="DBObject Models\Reading.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
