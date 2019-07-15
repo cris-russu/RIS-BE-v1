@@ -1,9 +1,14 @@
 ﻿using Newtonsoft.Json;
+using log4net;
+using System.Reflection;
+using System;
 
 namespace ModelsLib
 {
     public class Telegram
     {
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         #region properties and empty ctor
 
         public readonly string cmd = "rx";
@@ -19,10 +24,17 @@ namespace ModelsLib
 
         public Telegram() { }
         #endregion
-        
-        public Telegram GetTelegram(string rawJson) => JsonConvert.DeserializeObject<Telegram>(rawJson);
-        
-        public string ConvertToJson() => JsonConvert.SerializeObject(this); 
-        
+
+        public Telegram GetTelegram(string rawJson) {
+            try { return JsonConvert.DeserializeObject<Telegram>(rawJson); }
+            catch (Exception e) { log.Error($"GetTelegram from Json has encountered the following exception: {e}"); return new Telegram(); }
+        }
+
+        public string ConvertToJson()
+        {
+            try { return JsonConvert.SerializeObject(this); }
+            catch (Exception e) { log.Error($"ConvertToJson has encountered the follwing exception: {e}"); return string.Empty; }
+        }
+
     }
 }

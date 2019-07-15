@@ -1,9 +1,13 @@
 ﻿using System;
+using log4net;
+using System.Reflection;
 
 namespace ModelsLib
 {
     public class DataContainer
     {
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         #region properties
 
         private DateTime timestamp;
@@ -50,14 +54,24 @@ namespace ModelsLib
         public DataContainer() { }
         public DataContainer(Telegram telegram)
         {
-            timestamp = Utils.UnixTimeStampToDateTime(telegram.ts);
+            log.Info("Creating DataContainer object from telegram");
             euid = telegram.eui;
-            PayloadHandler payloadHandler = new PayloadHandler(telegram);
 
-            tgs2602Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2602Val);
-            tgs2611Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2611Val);
-            tgs2620Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2620Val);
-            bme680Reading = new AtmosphericReading(Timestamp, payloadHandler.BMEPressure, payloadHandler.BMEHumidity, payloadHandler.BMETemperature, payloadHandler.BMEAirQuality);
+            try { timestamp = Utils.UnixTimeStampToDateTime(telegram.ts); }
+            catch (Exception e) { log.Error($"While converting to DateTime format, DataContainer has encountered the following exception: {e}"); }
+
+
+            PayloadHandler payloadHandler = new PayloadHandler(telegram);
+            try
+            {
+                tgs2602Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2602Val);
+                tgs2611Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2611Val);
+                tgs2620Reading = new ChemicalReading(Timestamp, payloadHandler.TGS2620Val);
+                bme680Reading = new AtmosphericReading(Timestamp, payloadHandler.BMEPressure, payloadHandler.BMEHumidity, payloadHandler.BMETemperature, payloadHandler.BMEAirQuality);
+            }
+            catch (Exception e) { log.Error($"While converting telegram to Readings, DataContainer has encountered the following exception: {e}"); }
+
+            log.Info("DataContainer with associated Reading-objects created. ");
         }
 
 

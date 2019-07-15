@@ -32,3 +32,6 @@ C:\Users\cris\Documents\git\RIS-BE v1.0\ModelsLib_Tests\obj\Debug\ModelsLib_Test
 C:\Users\cris\Documents\git\RIS-BE v1.0\ModelsLib_Tests\obj\Debug\ModelsLib_Tests.pdb
 C:\Users\cris\Documents\git\RIS-BE v1.0\ModelsLib_Tests\bin\Debug\Newtonsoft.Json.dll
 C:\Users\cris\Documents\git\RIS-BE v1.0\ModelsLib_Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\cris\Documents\git\RIS-BE v1.0\ModelsLib_Tests\bin\Debug\log4net.config
+C:\Users\cris\Documents\git\RIS-BE v1.0\ModelsLib_Tests\bin\Debug\log4net.dll
+C:\Users\cris\Documents\git\RIS-BE v1.0\ModelsLib_Tests\bin\Debug\log4net.xml
