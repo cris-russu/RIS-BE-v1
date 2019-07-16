@@ -27,7 +27,7 @@ namespace ModelsLib
             get { return number; }
             set { number = value; }
         }
-        public string MyProperty
+        public string Street
         {
             get { return street; }
             set { street = value; }

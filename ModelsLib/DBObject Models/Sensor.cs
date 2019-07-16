@@ -13,7 +13,13 @@ namespace ModelsLib.DBObject_Models
         private int uptime;
         private int lifetime;
         private List<Reading> readings;
+        //private Reading currentReading;
 
+        //public Reading CurrentReading
+        //{
+        //    get { return currentReading; }
+        //    set { currentReading = value; }
+        //}
         public List<Reading> MyProperty
         {
             get { return readings; }
@@ -42,6 +48,6 @@ namespace ModelsLib.DBObject_Models
             uptime = ut;
             lifetime = lt; 
         }
-        
+        // TODO: constructor with Reading-obj
     }
 }
