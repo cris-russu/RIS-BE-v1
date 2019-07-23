@@ -20,7 +20,7 @@ namespace ModelsLib.DBObject_Models
         //    get { return currentReading; }
         //    set { currentReading = value; }
         //}
-        public List<Reading> MyProperty
+        public List<Reading> Readings
         {
             get { return readings; }
             set { readings = value; }

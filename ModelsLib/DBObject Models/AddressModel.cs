@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 
 namespace ModelsLib
 {
@@ -8,30 +9,34 @@ namespace ModelsLib
 
         private string city;
         private string street;
-        private int number;
         private string zipCode;
         private List<WeatherForecast> forecasts;
+        private int _id;
 
+        [Column(IsDbGenerated = true, IsPrimaryKey = true, Storage = "_id")]
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         public List<WeatherForecast> Forecasts
         {
             get { return forecasts; }
             set { forecasts = value; }
         }
+        [Column(Storage = "zipCode")]
         public string ZipCode
         {
             get { return zipCode; }
             set { zipCode = value; }
         }
-        public int Number
-        {
-            get { return number; }
-            set { number = value; }
-        }
+        [Column(Storage = "street")]
         public string Street
         {
             get { return street; }
             set { street = value; }
         }
+        [Column(Storage = "city")]
         public string City
         {
             get { return city; }
@@ -41,13 +46,12 @@ namespace ModelsLib
         #endregion
 
         public AddressModel() { }
-        public AddressModel(string ct, string str, int num, string zc)
+        public AddressModel(string ct, string str, string zc)
         {
             city = ct;
             street = str;
-            number = num;
-            zipCode = zc; 
+            zipCode = zc;
         }
-        
+
     }
 }
