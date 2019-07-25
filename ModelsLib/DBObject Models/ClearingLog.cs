@@ -3,6 +3,7 @@ using System.Data.Linq.Mapping;
 
 namespace ModelsLib
 {
+    [Table(Name = "ClearingLogs")]
     public class ClearingLog
     {
         #region properties

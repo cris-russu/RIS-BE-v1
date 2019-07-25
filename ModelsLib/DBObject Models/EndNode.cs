@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ModelsLib.DBObject_Models
 {
+    [Table(Name = "EndNodes")]
     public class EndNode
     {
 

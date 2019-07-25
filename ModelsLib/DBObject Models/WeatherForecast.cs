@@ -3,6 +3,7 @@ using System.Data.Linq.Mapping;
 
 namespace ModelsLib
 {
+    [Table(Name = "WeatherForecasts")]
     public class WeatherForecast
     {
         #region properties

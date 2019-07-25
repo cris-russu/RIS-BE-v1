@@ -3,26 +3,22 @@ using System.Data.Linq.Mapping;
 
 namespace ModelsLib
 {
+    [Table(Name = "Addresses")]
     public class AddressModel
     {
         #region properties
 
+        private int _id;
         private string city;
         private string street;
         private string zipCode;
         private List<WeatherForecast> forecasts;
-        private int _id;
 
         [Column(IsDbGenerated = true, IsPrimaryKey = true, Storage = "_id")]
         public int Id
         {
             get { return _id; }
             set { _id = value; }
-        }
-        public List<WeatherForecast> Forecasts
-        {
-            get { return forecasts; }
-            set { forecasts = value; }
         }
         [Column(Storage = "zipCode")]
         public string ZipCode
@@ -43,6 +39,11 @@ namespace ModelsLib
             set { city = value; }
         }
 
+        public List<WeatherForecast> Forecasts
+        {
+            get { return forecasts; }
+            set { forecasts = value; }
+        }
         #endregion
 
         public AddressModel() { }
