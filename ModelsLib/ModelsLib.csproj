@@ -60,7 +60,6 @@
     <Compile Include="Enums\BinType.cs" />
     <Compile Include="Enums\SensorType.cs" />
     <Compile Include="PayloadHandler.cs" />
-    <Compile Include="DBObject Models\Reading.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Telegram.cs" />
     <Compile Include="Helpers\Utils.cs" />

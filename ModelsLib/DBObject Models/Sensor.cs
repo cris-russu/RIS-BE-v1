@@ -45,19 +45,7 @@ namespace ModelsLib.DBObject_Models
             get { return type; }
             set { type = value; }
         }
-        private List<Reading> readings;
-        public List<Reading> Readings
-        {
-            get { return readings; }
-            set { readings = value; }
-        }
-        //private Reading currentReading;
-
-        //public Reading CurrentReading
-        //{
-        //    get { return currentReading; }
-        //    set { currentReading = value; }
-        //}
+        
 
         public Sensor() { }
         public Sensor(SensorType tp, int ut, int lt)
@@ -66,6 +54,6 @@ namespace ModelsLib.DBObject_Models
             uptime = ut;
             lifespan = lt; 
         }
-        // TODO: constructor with Reading-obj
+        
     }
 }
