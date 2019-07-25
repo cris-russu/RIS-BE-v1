@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DBHelper.cs" />
     <Compile Include="DBObject Models\AddressModel.cs" />
     <Compile Include="DBObject Models\ChemicalReading.cs" />
     <Compile Include="DBObject Models\AtmosphericReading.cs" />
@@ -62,7 +63,7 @@
     <Compile Include="DBObject Models\Reading.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Telegram.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="Helpers\Utils.cs" />
     <Compile Include="DBObject Models\WeatherForecast.cs" />
   </ItemGroup>
   <ItemGroup>
