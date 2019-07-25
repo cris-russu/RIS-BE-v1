@@ -18,7 +18,7 @@ namespace ModelsLib
         [Column(IsDbGenerated = true, IsPrimaryKey = true, Storage = "_id")]
         public int Id { get { return _id; } set { _id = value; } }
         [Column(Storage = "timestamp")]
-        public DateTime Timestamp { get { return timestamp; } set { timestamp = value; } }
+        public DateTime Time_stamp { get { return timestamp; } set { timestamp = value; } }
         [Column(Storage = "sensorId")]
         public int SensorId { get { return sensorId; } set { sensorId = value; } }
         [Column(Storage = "airQuality")]
@@ -44,7 +44,7 @@ namespace ModelsLib
         }
         public AtmosphericReading(DateTime timestamp, ushort pr, byte hu, sbyte tmp, byte aq)
         {
-            Timestamp = timestamp;
+            Time_stamp = timestamp;
             pressure = pr;
             humidity = hu;
             tempurature = tmp;
@@ -56,13 +56,13 @@ namespace ModelsLib
             humidity = hu;
             tempurature = tmp;
             airQuality = aq;
-            Timestamp = ts;
+            Time_stamp = ts;
             SensorId = sensorId;
         }
 
         #endregion
 
-        public string GetReadingDate() => Timestamp.ToShortDateString();
-        public string GetReadingTime() => Timestamp.ToShortTimeString();
+        public string GetReadingDate() => Time_stamp.ToShortDateString();
+        public string GetReadingTime() => Time_stamp.ToShortTimeString();
     }
 }

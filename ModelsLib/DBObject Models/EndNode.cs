@@ -55,7 +55,7 @@ namespace ModelsLib.DBObject_Models
             set { urgency_lvl = value; }
         }
         [Column(Storage = "capacity")]
-        public int Capacity
+        public int BinCapacity
         {
             get { return capacity; }
             set { capacity = value; }

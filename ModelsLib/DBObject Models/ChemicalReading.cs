@@ -13,35 +13,35 @@ namespace ModelsLib
         [Column(IsDbGenerated = true, IsPrimaryKey = true, Storage = "_id")]
         public int Id { get { return _id; } set { _id = value; } }
         [Column(Storage = "timestamp")]
-        public DateTime Timestamp { get { return timestamp; } set { timestamp = value; } }
+        public DateTime Time_stamp { get { return timestamp; } set { timestamp = value; } }
         [Column(Storage = "sensorId")]
         public int SensorId { get { return sensorId; } set { sensorId = value; } }
         [Column(Storage = "val")]
-        public ushort Value { get { return val; } set { val = value; } }
+        public ushort Read_Value { get { return val; } set { val = value; } }
 
         #region cosntructors
 
         public ChemicalReading() { }
         public ChemicalReading(DateTime timestamp, ushort value)
         {
-            Timestamp = timestamp;
-            Value = value;
+            Time_stamp = timestamp;
+            Read_Value = value;
         }
         public ChemicalReading(DateTime timestamp, ushort value, int sensor)
         {
-            Timestamp = timestamp;
+            Time_stamp = timestamp;
             val = value;
             sensor = SensorId;
         }
         public ChemicalReading(DateTime timestamp, int sensorID, ushort value)
         {
-            Timestamp = timestamp;
+            Time_stamp = timestamp;
             SensorId = sensorID;
             val = value;
         }
 
         #endregion
-        public string GetReadingDate() => Timestamp.ToShortDateString();
-        public string GetReadingTime() => Timestamp.ToShortTimeString();
+        public string GetReadingDate() => Time_stamp.ToShortDateString();
+        public string GetReadingTime() => Time_stamp.ToShortTimeString();
     }
 }

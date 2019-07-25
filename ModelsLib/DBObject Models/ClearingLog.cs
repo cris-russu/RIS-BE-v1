@@ -24,7 +24,7 @@ namespace ModelsLib
             set { binId = value; }
         }
         [Column(Storage = "date")]
-        public DateTime Date
+        public DateTime Time_stamp
         {
             get { return date; }
             set { date = value; }
@@ -35,7 +35,7 @@ namespace ModelsLib
         public ClearingLog(DateTime dt, int bin)
         {
             date = dt;
-            binId = bin; 
+            binId = bin;
         }
     }
 }
